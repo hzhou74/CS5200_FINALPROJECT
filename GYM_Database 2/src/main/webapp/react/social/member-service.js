@@ -32,10 +32,10 @@ export const updateMember = (id, member) =>
     fetch(`http://localhost:8090/api/member/update/${id}`, {
         method: 'PUT',
         body: JSON.stringify(member),
-        // headers: {
-        //     "Access-Control-Allow-Origin": "*",
-        //     'content-type': 'application/json'
-        // },//"mode" : "no-cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            'content-type': 'application/json'
+        },//"mode" : "no-cors",
     }).then(response => response.json())
 
 

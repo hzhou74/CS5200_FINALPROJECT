@@ -1,7 +1,7 @@
 import membershipService from "./membership-service"
 
 const {useState, useEffect} = React;
-const {useParams, useHistory} = window.ReactRouterDOM;
+const {Link,useParams, useHistory} = window.ReactRouterDOM;
 const MembershipFormEditor = () => {
     const history = useHistory()
     const {id} = useParams()
@@ -14,6 +14,11 @@ const MembershipFormEditor = () => {
     const findMembershipById = (id) =>
         membershipService.findMembershipById(id)
             .then(user => setUser(user))
+
+    const findMemberByMembershipId = (id) =>
+        membershipService.findMembersByMembershipId(id)
+            .then(user => setUser(user))
+
     const deleteMembership = (id) =>
         membershipService.deleteMembership(id)
             .then(() => history.goBack())
@@ -69,6 +74,13 @@ const MembershipFormEditor = () => {
                 onClick={() => createMembership(user)}>
                 Update Info and Create
             </button>
+            {/*<button className="btn btn-info"*/}
+            {/*        onClick={() => findMemberByMembershipId(user.id)}>*/}
+            {/*    Go to Members List Pages whose Membership Id = {user.id}*/}
+            {/*</button>*/}
+            <Link to={`/member/?id =${user.id}`}>
+                Go to Members Edit Pages whose Membership Id = {user.id}
+            </Link>
 
         </div>
     )

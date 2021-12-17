@@ -98,6 +98,9 @@ const MemberFormEditor = () => {
                     onClick={() => createMember(user)}>
                 Update Info and Create
             </button>
+            <Link to={`/workout/?id= ${user.id}`}>
+                Go to Workout List Page with Member Id = {user.id}
+            </Link>
 
 
         </div>

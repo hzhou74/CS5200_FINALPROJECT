@@ -26,9 +26,9 @@ export const createWorkout = (workout) =>
               method: 'POST',
               body: JSON.stringify(workout),
               headers: {
-                  "Access-Control-Allow-Origin": "*",
+                  // "Access-Control-Allow-Origin": "*",
                   'content-type': 'application/json'
-              },//,"mode" : "no-cors",
+              }//,"mode" : "no-cors",
           }).then(response => response.json())
 
 

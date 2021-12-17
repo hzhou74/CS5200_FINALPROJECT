@@ -11,6 +11,10 @@ export const findAllMemberships = () =>
 export const findMembershipById = (id) =>
     fetch(`http://localhost:8090/api/membership_plan/find/id/${id}`).then(response => response.json())
 
+// TODO: retrieve a single user by their ID
+export const findMembersByMembershipId = (id) =>
+    fetch(`http://localhost:8090/api/member/find/id/${id}`).then(response => response.json())
+
 
 // TODO: delete a user by their ID
 export const deleteMembership = (id) =>
@@ -48,5 +52,6 @@ export default {
     findMembershipById,
     deleteMembership,
     createMembership,
-    updateMembership
+    updateMembership,
+    findMembersByMembershipId
 }
